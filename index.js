@@ -3,11 +3,11 @@ var wordpress = require('wordpress');
 var jade = require('jade');
 var bodyParser = require('body-parser')
 
-// var client = wordpress.createClient({
-//     url: "bdtk.ro",
-//     username: "",
-//     password: ""
-// });
+var client = wordpress.createClient({
+    url: "bdtk.ro",
+    username: "",
+    password: ""
+});
 
 var post =   { 
     title: 'Test Encyclopedia',
@@ -37,11 +37,29 @@ app.set('view engine', 'jade');
 // client.newPost(post,function( error, posts ) {
 //     console.log(posts);
 // });
-app.get('/', jsonParser, function(req, res) {
+var posts = [];
+// client.getPosts({'type':'encyclopedia'}, function(error, data) {
+//     //console.log(data);
+//     data.reduce(function(posts, cur){
+//         posts.push({'id': cur.id, 'title': cur.title});
+//         return posts;
+//     }, posts)
+
+//     console.log(posts);
+// });
+
+for (var i =0; i < 500; i++) {
+    client.getPost(299, function(error, data) {
+        console.log(data);    
+    });
+}
+
+
+app.get('/', function(req, res) {
     res.render('form');         
 });
 
-app.post('/', function(req, res){
+app.post('/', jsonParser, function(req, res){
     console.log(req.body);
     console.log(req.add);
 }) 
