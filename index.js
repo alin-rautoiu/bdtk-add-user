@@ -1,6 +1,7 @@
 var express = require('express');
 var wordpress = require('wordpress');
 var jade = require('jade');
+var bodyParser = require('body-parser')
 
 // var client = wordpress.createClient({
 //     url: "bdtk.ro",
@@ -26,15 +27,17 @@ var post =   {
     format: 'standard',
     customFields: [] } 
 
+var jsonParser = bodyParser.json();
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 var app = express();
-app.use(express.bodyParser());
 app.set('views', './views');
 app.set('view engine', 'jade');
 
 // client.newPost(post,function( error, posts ) {
 //     console.log(posts);
 // });
-app.get('/', function(req, res) {
+app.get('/', jsonParser, function(req, res) {
     res.render('form');         
 });
 
