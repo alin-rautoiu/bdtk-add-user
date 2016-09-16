@@ -1,0 +1,56 @@
+html
+    head
+        title= "Add BDTK term"
+        link(href='/css/style.css', rel='stylesheet')
+    body
+        block content
+            h1= "Create new term"
+            form(name="add-term", method="post")
+                table
+                    tr
+                        td
+                            span.label User
+                        td
+                            input(type="text", name="user")
+                    tr
+                        td
+                            span.label Password:
+                        td    
+                            input(type="password", name="pass")
+                    tr
+                        td
+                            span.label Nume
+                        td
+                            input(type="text", name="nume")
+                    tr
+                        td
+                            span.label Anul nașterii:
+                        td    
+                            input(type="text", name="an")
+                    tr
+                        td
+                            span.label Localitate:
+                        td
+                            input(type="text", name="localiate")
+                    tr  
+                        td
+                            span.label Roluri:
+                        td    
+                            input(type="text", name="roluri")
+                    tr
+                        td
+                            span.label Cunoscut pentru:
+                        td    
+                            input(type="text", name="cunoscut")                                               
+                    tr
+                        td
+                            span.label Biografie
+                        td
+                            textarea(name="description", cols="40", rows="5")
+                    tr
+                        td
+                            span.label Bibliografie
+                        td
+                            textarea(name="bibliografie", cols="40", rows="5")
+                div.actions
+                    input(type="submit", value="add")
