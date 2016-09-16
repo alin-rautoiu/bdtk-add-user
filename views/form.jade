@@ -17,6 +17,16 @@ html
                             span.label Password:
                         td    
                             input(type="password", name="pass")
+                br
+                br                
+                table
+                    tr
+                        td
+                            span.label term
+                        td
+                            select(name="post")
+                                each post, i in posts
+                                    option(value="#{post.id}") #{post.title}
                     tr
                         td
                             span.label Nume
