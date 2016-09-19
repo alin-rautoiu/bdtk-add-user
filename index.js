@@ -330,7 +330,11 @@ app.post('/', function(req, res){
         });
 
         client.editPost(body.post, {"content": newPost}, function (error) {
-            res.send(error);
+            if (error != null) {
+                res.send(error);
+            } else {
+                res.redirect('/');
+            }
         })
 }) 
 
