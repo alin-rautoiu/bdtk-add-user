@@ -285,6 +285,11 @@ var posts = [{
 "title": "Test Encyclopedia",
 "type": "encyclopedia",
 "id": "397",
+},
+{
+"title": "Oana Dobre",
+"type": "encyclopedia",
+"id": "513",
 }];
 
 function getPost(i) {    
